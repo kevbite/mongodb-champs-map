@@ -1,14 +1,12 @@
 import { groupByLocation, type Champion } from "@/lib/champions"
 import championsData from "@/lib/data/champions.json"
 import { ChampionsMap } from "@/components/champions-map"
-import { MapPin, Users, Globe } from "lucide-react"
+import { Users, Globe } from "lucide-react"
 
 export default function Page() {
   const champions = championsData as Champion[]
   const total = champions.length
   const { groups, unmapped } = groupByLocation(champions)
-
-  const mappedCount = groups.reduce((n, g) => n + g.champions.length, 0)
 
   return (
     <main className="flex h-dvh flex-col bg-background text-foreground">
@@ -24,7 +22,6 @@ export default function Page() {
         <div className="flex flex-wrap gap-4">
           <Stat icon={<Users className="size-4" />} label="Champions" value={total} />
           <Stat icon={<Globe className="size-4" />} label="Locations" value={groups.length} />
-          <Stat icon={<MapPin className="size-4" />} label="On map" value={mappedCount} />
         </div>
       </header>
 

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // Produce a fully static site in `out/` for GitHub Pages.
+  output: 'export',
+  // Served at the root of the custom subdomain, so no basePath/assetPrefix.
   images: {
     unoptimized: true,
   },

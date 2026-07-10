@@ -62,14 +62,14 @@ export function ChampionsMap({ groups }: Props) {
               .map((s) => escapeHtml(s as string))
               .join(" · ")
             const initial = escapeHtml(c.name.charAt(0).toUpperCase())
-            // Always render the initial as a base layer; the proxied image
-            // sits on top and simply hides itself if it fails to load,
+            // Always render the initial as a base layer; the locally-hosted
+            // avatar sits on top and simply hides itself if it fails to load,
             // revealing the initial underneath.
             const img = `<span class="champion-popup__avatar">
                 <span class="champion-popup__avatar-initial">${initial}</span>
                 ${
-                  c.img_url
-                    ? `<img src="/api/avatar?url=${encodeURIComponent(c.img_url)}" alt="" class="champion-popup__avatar-img" loading="lazy" onerror="this.style.display='none'" />`
+                  c.avatar
+                    ? `<img src="${escapeHtml(c.avatar)}" alt="" class="champion-popup__avatar-img" loading="lazy" onerror="this.style.display='none'" />`
                     : ""
                 }
               </span>`

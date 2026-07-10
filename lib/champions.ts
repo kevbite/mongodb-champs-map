@@ -10,6 +10,8 @@ export type Champion = {
   name: string
   page_order?: number
   user_link?: string
+  /** Local, build-time-downloaded avatar path (e.g. `/avatars/jane-doe-a1b2c3.jpg`). */
+  avatar?: string
 }
 
 export type LocationGroup = {
@@ -19,30 +21,7 @@ export type LocationGroup = {
   champions: Champion[]
 }
 
-const SOURCE_URL = "https://www.mongodb.com/community/champions"
-
-/**
- * Fetches the MongoDB champions page at runtime and extracts the
- * `var capData = [...]` array embedded in a <script> block.
- */
-export async function fetchChampions(): Promise<Champion[]> {
-  const res = await fetch(SOURCE_URL, {
-    headers: {
-      // A browser-like UA avoids getting a stripped-down response.
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-    },
-    // Revalidate periodically so the map stays fresh without hammering the source.
-    next: { revalidate: 3600 },
-  })
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch champions page: ${res.status}`)
-  }
-
-  const html = await res.text()
-  return parseCapData(html)
-}
+export const SOURCE_URL = "https://www.mongodb.com/community/champions"
 
 /**
  * Extracts and parses the JSON array assigned to `var capData` in the page HTML.

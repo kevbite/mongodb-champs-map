@@ -1,0 +1,63 @@
+name: Refresh champion data
+
+on:
+  schedule:
+    # Weekly, Monday 06:00 UTC. Re-fetches source data + avatars and only
+    # commits (and triggers a deploy) when something actually changed.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+# Needs to commit refreshed data and dispatch the deploy workflow.
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Fetch latest champion data and avatars
+        run: pnpm fetch-data
+
+      - name: Commit changes if the source content changed
+        id: commit
+        run: |
+          git add lib/data/champions.json public/avatars
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes in champion data — nothing to deploy."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: refresh champion data [skip ci]"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Champion data changed — committed and will trigger a deploy."
+          fi
+
+      # A push made with GITHUB_TOKEN does not trigger deploy.yml, so we
+      # dispatch it explicitly to publish the freshly committed data.
+      - name: Trigger deployment
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

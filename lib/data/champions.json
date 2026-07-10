@@ -1,0 +1,698 @@
+[
+  {
+    "name": "Aasawari Sahasrabuddhe",
+    "location": "Canada",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Okta",
+    "ext_role": "Senior Developer Advocate",
+    "page_order": 1,
+    "avatar": "/avatars/aasawari-sahasrabuddhe-db8026.jpg"
+  },
+  {
+    "name": "Abirami Sukumaran",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Google",
+    "ext_role": "Developer Advocate",
+    "page_order": 25,
+    "user_link": "https://www.mongodb.com/community/champions/abirami-sukumaran/",
+    "avatar": "/avatars/abirami-sukumaran-bbaf61.jpg"
+  },
+  {
+    "name": "Andres Rangel",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Sr Principal, Software Engineer",
+    "page_order": 3,
+    "avatar": "/avatars/andres-rangel-f79d9a.jpg"
+  },
+  {
+    "name": "Arek Borucki",
+    "location": "Germany",
+    "cap_role": "Champion",
+    "cap_role_since": "2018",
+    "company": "Hugging Face",
+    "ext_role": "ML Platform & Data Engineer",
+    "page_order": 3,
+    "user_link": "https://www.mongodb.com/community/champions/arkadiusz-borucki/",
+    "avatar": "/avatars/arek-borucki-b27c12.jpg"
+  },
+  {
+    "name": "Azim Uddin",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Microsoft",
+    "ext_role": "Principal Cloud Solution Architect",
+    "page_order": 4,
+    "avatar": "/avatars/azim-uddin-4067a3.jpg"
+  },
+  {
+    "name": "Azri Azmi",
+    "location": "Malaysia",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "SEEK",
+    "ext_role": "Lead Engineer",
+    "page_order": 23,
+    "user_link": "https://www.mongodb.com/community/champions/azri-azmi/",
+    "avatar": "/avatars/azri-azmi-d92a98.jpg"
+  },
+  {
+    "name": "Bálder Carraté",
+    "location": "Spain",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Klikin",
+    "ext_role": "Principal Software Engineer",
+    "page_order": 42,
+    "avatar": "/avatars/balder-carrate-e6af88.png"
+  },
+  {
+    "name": "Barry Ruffner",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Intuit",
+    "ext_role": "Staff Software Engineer",
+    "page_order": 6,
+    "avatar": "/avatars/barry-ruffner-967502.jpg"
+  },
+  {
+    "name": "Bikram Das",
+    "location": "United Kingdom",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Tata Consultancy Services",
+    "ext_role": "Chief Data Architect, BFSI",
+    "page_order": 7,
+    "avatar": "/avatars/bikram-das-ac0493.jpg"
+  },
+  {
+    "name": "Carla Barata",
+    "location": "Portugal",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "BPI",
+    "ext_role": "Database Tech Expert",
+    "user_link": "https://www.mongodb.com/community/champions/carla-barata/",
+    "avatar": "/avatars/carla-barata-e71f43.jpg"
+  },
+  {
+    "name": "ChanLing Li",
+    "location": "China",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Senior Database Architect",
+    "page_order": 8,
+    "avatar": "/avatars/chanling-li-5822f0.jpg"
+  },
+  {
+    "name": "Chris Dellaway",
+    "location": "New Zealand",
+    "cap_role": "Champion",
+    "cap_role_since": "2020",
+    "company": "Delbridge Solutions",
+    "ext_role": "Consulting Engineer",
+    "page_order": 1,
+    "user_link": "https://www.mongodb.com/community/champions/chris-dellaway/",
+    "avatar": "/avatars/chris-dellaway-4dbe23.jpg"
+  },
+  {
+    "name": "Claudia Cardeño Cano",
+    "location": "Colombia",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "ext_role": "Infrastructure Engineer",
+    "page_order": 32,
+    "user_link": "https://www.mongodb.com/community/champions/claudia-cardeno-cano/",
+    "avatar": "/avatars/claudia-cardeno-cano-15ed6c.jpg"
+  },
+  {
+    "name": "Darshan Jayarama",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "CHAMP Cargosystem",
+    "ext_role": "MongoDB Engineer",
+    "page_order": 9,
+    "avatar": "/avatars/darshan-jayarama-73dfc0.jpg"
+  },
+  {
+    "name": "Elie Hannouch",
+    "location": "Lebanon",
+    "cap_role": "Champion",
+    "cap_role_since": "2023",
+    "company": "Netways",
+    "ext_role": "Technical Product Manager",
+    "page_order": 11,
+    "user_link": "https://www.mongodb.com/community/champions/elie-hannouch/",
+    "avatar": "/avatars/elie-hannouch-7e466c.jpg"
+  },
+  {
+    "name": "Ena Vu",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Accenture",
+    "ext_role": "AI Engineer",
+    "page_order": 10,
+    "avatar": "/avatars/ena-vu-f3fcc3.jpg"
+  },
+  {
+    "name": "Fatma Selcen Sahin",
+    "location": "Ireland",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Mastercard",
+    "ext_role": "Principal Solution Architect",
+    "page_order": 11,
+    "avatar": "/avatars/fatma-selcen-sahin-60fc6f.png"
+  },
+  {
+    "name": "Flavia Bomfim",
+    "location": "Brazil",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Grupo Boticario",
+    "ext_role": "DevOps Specialist",
+    "page_order": 31,
+    "user_link": "https://www.mongodb.com/community/champions/flavia-bomfim-policante/",
+    "avatar": "/avatars/flavia-bomfim-ce16c9.jpg"
+  },
+  {
+    "name": "Genaro Neto",
+    "location": "Brazil",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "iFood",
+    "ext_role": "Database Engineer Specialist",
+    "page_order": 12,
+    "avatar": "/avatars/genaro-neto-ea3adf.jpg"
+  },
+  {
+    "name": "Igor Alekseev",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "AWS",
+    "ext_role": "Partner Solutions Architect",
+    "page_order": 16,
+    "user_link": "https://www.mongodb.com/community/champions/igor-alekseev/",
+    "avatar": "/avatars/igor-alekseev-1fe4cb.jpg"
+  },
+  {
+    "name": "Jesus Ernesto Carrasco",
+    "location": "Mexico",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Director de Desarrollo",
+    "page_order": 13,
+    "avatar": "/avatars/jesus-ernesto-carrasco-5437f2.jpg"
+  },
+  {
+    "name": "Joey Marburger",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Arc XP/The Washington Post",
+    "ext_role": "VP, Content Intelligence",
+    "user_link": "https://www.mongodb.com/community/champions/joey-marburger/",
+    "avatar": "/avatars/joey-marburger-f9f53d.jpg"
+  },
+  {
+    "name": "Justin Jenkins",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Pushpay",
+    "ext_role": "Full Stack Developer & Instructor",
+    "page_order": 30,
+    "user_link": "https://www.mongodb.com/community/champions/justin-jenkins/",
+    "avatar": "/avatars/justin-jenkins-d94b0a.jpg"
+  },
+  {
+    "name": "Kanin Kearpimy",
+    "location": "Thailand",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Software Engineer",
+    "page_order": 14,
+    "avatar": "/avatars/kanin-kearpimy-912542.jpg"
+  },
+  {
+    "name": "Karen Zhang",
+    "location": "Canada",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Clio",
+    "ext_role": "Data Engineer",
+    "user_link": "https://www.mongodb.com/community/champions/karen-zhang/",
+    "avatar": "/avatars/karen-zhang-f43422.jpg"
+  },
+  {
+    "name": "Kevin Smith",
+    "location": "UK",
+    "cap_role": "Champion",
+    "cap_role_since": "2023",
+    "company": "Exizent",
+    "ext_role": "Senior Software Engineer",
+    "page_order": 6,
+    "user_link": "https://www.mongodb.com/community/champions/kevin-smith/",
+    "avatar": "/avatars/kevin-smith-eef0c6.jpg"
+  },
+  {
+    "name": "Kunal Kannav",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Palo Alto Networks",
+    "ext_role": "Principal SRE Engineer",
+    "page_order": 15,
+    "avatar": "/avatars/kunal-kannav-2fc76d.png"
+  },
+  {
+    "name": "Lai Kai Yong",
+    "location": "Malaysia",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Sleek Labs",
+    "ext_role": "Software Engineer",
+    "user_link": "https://www.mongodb.com/community/champions/lai-kai-yong/",
+    "avatar": "/avatars/lai-kai-yong-b15f35.jpg"
+  },
+  {
+    "name": "Leandro Domingues",
+    "location": "Brazil",
+    "cap_role": "Champion",
+    "cap_role_since": "2018",
+    "company": "Extractta",
+    "ext_role": "Head of NoSQL",
+    "page_order": 8,
+    "user_link": "https://www.mongodb.com/community/champions/leandro-domingues/",
+    "avatar": "/avatars/leandro-domingues-1b9a3b.jpg"
+  },
+  {
+    "name": "Loveleen Kaur",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Twin Health",
+    "ext_role": "Senior Software Engineer",
+    "page_order": 16,
+    "avatar": "/avatars/loveleen-kaur-0f7afb.png"
+  },
+  {
+    "name": "Luke Thompson",
+    "location": "Australia",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Clarifresh",
+    "ext_role": "Chief Architect",
+    "user_link": "https://www.mongodb.com/community/champions/luke-thompson/"
+  },
+  {
+    "name": "Malak Abu Hammad",
+    "location": "Jordan",
+    "cap_role": "Champion",
+    "cap_role_since": "2021",
+    "company": "Sitech",
+    "ext_role": "Senior Technical Lead",
+    "page_order": 4,
+    "user_link": "https://www.mongodb.com/community/champions/malak-abu-hammad/",
+    "avatar": "/avatars/malak-abu-hammad-924695.png"
+  },
+  {
+    "name": "Margaret Menzin",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Simmons University",
+    "ext_role": "Professor",
+    "user_link": "https://www.mongodb.com/community/champions/margaret-menzin/",
+    "avatar": "/avatars/margaret-menzin-06a618.jpg"
+  },
+  {
+    "name": "Marko Aleksendric",
+    "location": "Serbia",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "ext_role": "Analyst",
+    "user_link": "https://www.mongodb.com/community/champions/marko-aleksendric/",
+    "avatar": "/avatars/marko-aleksendric-a7b5ae.jpg"
+  },
+  {
+    "name": "Markus Wildgruber",
+    "location": "Germany",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Sevantage Software GmbH",
+    "ext_role": "Principal Software Engineer",
+    "user_link": "https://www.mongodb.com/community/champions/markus-wildgruber/",
+    "avatar": "/avatars/markus-wildgruber-8f5a72.jpg"
+  },
+  {
+    "name": "Mateus Leonardi",
+    "location": "Brazil",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "ext_role": "Head of Engineering",
+    "page_order": 15,
+    "user_link": "https://www.mongodb.com/community/champions/mateus-leonardi/",
+    "avatar": "/avatars/mateus-leonardi-36ff6f.png"
+  },
+  {
+    "name": "Max Hoarau",
+    "location": "France",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Capgemini",
+    "ext_role": "Managing Enterprise Architect",
+    "page_order": 17,
+    "avatar": "/avatars/max-hoarau-35f6f7.jpg"
+  },
+  {
+    "name": "Michael Holler",
+    "location": "Germany",
+    "cap_role": "Champion",
+    "cap_role_since": "2017",
+    "company": "Akazia Consulting",
+    "ext_role": "Independent Consultant",
+    "page_order": 7,
+    "user_link": "https://www.mongodb.com/community/champions/michael-hoeller/",
+    "avatar": "/avatars/michael-holler-28b356.jpg"
+  },
+  {
+    "name": "Minjong Kim",
+    "location": "Republic of Korea",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Wrtn Technologies, Inc.",
+    "ext_role": "Backend Engineer",
+    "page_order": 18,
+    "avatar": "/avatars/minjong-kim-4f3bd7.png"
+  },
+  {
+    "name": "Mohamed Amr",
+    "location": "United Arab Emirates",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "AI Specialist",
+    "page_order": 19,
+    "avatar": "/avatars/mohamed-amr-6b3944.jpg"
+  },
+  {
+    "name": "Mohammed Hamzeh",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Cisco Systems",
+    "ext_role": "Principal Machine Learning Engineer",
+    "page_order": 20,
+    "avatar": "/avatars/mohammed-hamzeh-a7d15d.png"
+  },
+  {
+    "name": "Mustafa Kadioglu",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Cisco",
+    "ext_role": "Lead Data Scientist",
+    "page_order": 29,
+    "user_link": "https://www.mongodb.com/community/champions/mustafa-kadioglu/",
+    "avatar": "/avatars/mustafa-kadioglu-37c6fc.jpg"
+  },
+  {
+    "name": "Nancy Agarwal",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Salesforce",
+    "ext_role": "SMTS",
+    "page_order": 26,
+    "user_link": "https://www.mongodb.com/community/champions/nancy-agarwal/",
+    "avatar": "/avatars/nancy-agarwal-9aad55.png"
+  },
+  {
+    "name": "Nenad Milosavljevic",
+    "location": "Serbia",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Flatfee",
+    "ext_role": "Senior Software Engineer",
+    "page_order": 17,
+    "user_link": "https://www.mongodb.com/community/champions/nenad-milosavljevic/",
+    "avatar": "/avatars/nenad-milosavljevic-0dd1b9.jpg"
+  },
+  {
+    "name": "Ninad Hulle",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Infosys",
+    "ext_role": "Senior Principal Technology Architect",
+    "page_order": 21,
+    "avatar": "/avatars/ninad-hulle-3983f2.jpg"
+  },
+  {
+    "name": "Nuri Halperin",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2015",
+    "company": "Plus N Consulting",
+    "ext_role": "Senior Architect",
+    "page_order": 2,
+    "user_link": "https://www.mongodb.com/community/champions/nuri-halperin/",
+    "avatar": "/avatars/nuri-halperin-a30e3f.png"
+  },
+  {
+    "name": "Pedro Henriques",
+    "location": "Portugal",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "NOS SGPS",
+    "ext_role": "Tech Architect",
+    "page_order": 22,
+    "avatar": "/avatars/pedro-henriques-9a8085.png"
+  },
+  {
+    "name": "Pranav Kumar Verma",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Wipro",
+    "ext_role": "Technical Lead",
+    "page_order": 23,
+    "avatar": "/avatars/pranav-kumar-verma-93d33d.jpg"
+  },
+  {
+    "name": "Prashant Shandilya",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Comviva Technologies Limited",
+    "ext_role": "Distinguished Architect",
+    "page_order": 24,
+    "avatar": "/avatars/prashant-shandilya-34eb79.png"
+  },
+  {
+    "name": "Priyanka Taneja",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Microsoft",
+    "ext_role": "Senior Software Engineer",
+    "page_order": 25,
+    "avatar": "/avatars/priyanka-taneja-2cdfde.png"
+  },
+  {
+    "name": "Rajesh Nair",
+    "location": "Netherlands",
+    "cap_role": "Champion",
+    "cap_role_since": "2020",
+    "ext_role": "Senior Software Engineer",
+    "page_order": 12,
+    "user_link": "https://www.mongodb.com/community/champions/rajesh-nair/",
+    "avatar": "/avatars/rajesh-nair-a0f199.jpg"
+  },
+  {
+    "name": "Rama Pabolu",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Sr. Director, Software Engineering",
+    "page_order": 26,
+    "avatar": "/avatars/rama-pabolu-84794b.jpg"
+  },
+  {
+    "name": "Rashmi Bhagwat",
+    "location": "United Kingdom",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Accenture",
+    "ext_role": "Custom Software Engineering Specialist",
+    "page_order": 27,
+    "avatar": "/avatars/rashmi-bhagwat-daaad7.jpg"
+  },
+  {
+    "name": "Roman Right",
+    "location": "Costa Rica",
+    "cap_role": "Champion",
+    "cap_role_since": "2023",
+    "ext_role": "Lead Software Engineer",
+    "page_order": 9,
+    "user_link": "https://www.mongodb.com/community/champions/roman-right/",
+    "avatar": "/avatars/roman-right-30ffa3.jpg"
+  },
+  {
+    "name": "Rossana Suarez",
+    "location": "Argentina",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Naranja X",
+    "ext_role": "Tech Lead DevOps",
+    "page_order": 28,
+    "avatar": "/avatars/rossana-suarez-b1666d.jpg"
+  },
+  {
+    "name": "Ruthvik Reddy Anumasu",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "ext_role": "Principal Database Engineer",
+    "user_link": "https://www.mongodb.com/community/champions/ruthvik-reddy-anumasu/",
+    "avatar": "/avatars/ruthvik-reddy-anumasu-b72a32.jpg"
+  },
+  {
+    "name": "Sachin Gupta",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "GMR Group",
+    "ext_role": "VP- Head AI & Automation",
+    "user_link": "https://www.mongodb.com/community/champions/sachin-gupta/",
+    "avatar": "/avatars/sachin-gupta-abbb74.png"
+  },
+  {
+    "name": "Samuel Molling",
+    "location": "Brazil",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Fireflies.ai",
+    "ext_role": "Database Reliability Engineer",
+    "user_link": "https://www.mongodb.com/community/champions/samuel-molling/",
+    "avatar": "/avatars/samuel-molling-35cdc7.png"
+  },
+  {
+    "name": "Shaun Roberts",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Cisco",
+    "ext_role": "Distinguished Engineer",
+    "user_link": "https://www.mongodb.com/community/champions/shaun-roberts/",
+    "avatar": "/avatars/shaun-roberts-bb1787.jpg"
+  },
+  {
+    "name": "Shrey Batra",
+    "location": "India",
+    "cap_role": "Champion",
+    "cap_role_since": "2021",
+    "company": "HrOne",
+    "ext_role": "Head of Engineering",
+    "page_order": 5,
+    "user_link": "https://www.mongodb.com/community/champions/shrey-batra/",
+    "avatar": "/avatars/shrey-batra-6efd2e.png"
+  },
+  {
+    "name": "Steve Jones",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Capegemini",
+    "ext_role": "Head of Agentic Transformation, Insights and Data",
+    "user_link": "https://www.mongodb.com/community/champions/steve-jones/",
+    "avatar": "/avatars/steve-jones-4f1fa6.jpg"
+  },
+  {
+    "name": "Swetank Poddar",
+    "location": "United Kingdom",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Platform Engineering Lead",
+    "page_order": 29,
+    "avatar": "/avatars/swetank-poddar-6d6b58.jpg"
+  },
+  {
+    "name": "Tamara Manzi de Azevedo",
+    "location": "Brasil",
+    "cap_role": "Champion",
+    "cap_role_since": "2024",
+    "company": "Agibank",
+    "ext_role": "Database Leader",
+    "page_order": 22,
+    "user_link": "https://www.mongodb.com/community/champions/tamara-manzi-de-azevedo/",
+    "avatar": "/avatars/tamara-manzi-de-azevedo-e8ce65.jpg"
+  },
+  {
+    "name": "Valeri Karpov",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "MeanIT Software",
+    "ext_role": "Founder & CEO",
+    "page_order": 30,
+    "avatar": "/avatars/valeri-karpov-dd7410.webp"
+  },
+  {
+    "name": "Vincent Thinselin",
+    "location": "France",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Senior Technical Architect",
+    "page_order": 31,
+    "avatar": "/avatars/vincent-thinselin-df7ad6.jpg"
+  },
+  {
+    "name": "XiaoLei Dai",
+    "location": "China",
+    "cap_role": "Champion",
+    "cap_role_since": "2025",
+    "company": "Zhihu",
+    "ext_role": "Database Architecture Team Lead",
+    "user_link": "https://www.mongodb.com/community/champions/xiaolei-dai/",
+    "avatar": "/avatars/xiaolei-dai-1bcc6e.jpg"
+  },
+  {
+    "name": "Yadvinder Brar",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "ext_role": "Principal Architect",
+    "page_order": 32,
+    "avatar": "/avatars/yadvinder-brar-abe848.jpg"
+  },
+  {
+    "name": "Zoheb Chirammal",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Centene Corporation",
+    "ext_role": "Director, Application Development Engineering",
+    "page_order": 40,
+    "avatar": "/avatars/zoheb-chirammal-9e8988.png"
+  },
+  {
+    "name": "Zuzana Matevossian",
+    "location": "United States",
+    "cap_role": "Champion",
+    "cap_role_since": "2026",
+    "company": "Lovable",
+    "ext_role": "Solutions Architect",
+    "page_order": 34,
+    "avatar": "/avatars/zuzana-matevossian-e9ed4b.jpg"
+  }
+]

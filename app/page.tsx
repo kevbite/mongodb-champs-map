@@ -1,24 +1,12 @@
-import { fetchChampions, groupByLocation } from "@/lib/champions"
+import { groupByLocation, type Champion } from "@/lib/champions"
+import championsData from "@/lib/data/champions.json"
 import { ChampionsMap } from "@/components/champions-map"
 import { MapPin, Users, Globe } from "lucide-react"
 
-export const dynamic = "force-dynamic"
-
-export default async function Page() {
-  let error: string | null = null
-  let groups: Awaited<ReturnType<typeof groupByLocation>>["groups"] = []
-  let unmapped: Awaited<ReturnType<typeof groupByLocation>>["unmapped"] = []
-  let total = 0
-
-  try {
-    const champions = await fetchChampions()
-    total = champions.length
-    const grouped = groupByLocation(champions)
-    groups = grouped.groups
-    unmapped = grouped.unmapped
-  } catch (e) {
-    error = e instanceof Error ? e.message : "Unknown error"
-  }
+export default function Page() {
+  const champions = championsData as Champion[]
+  const total = champions.length
+  const { groups, unmapped } = groupByLocation(champions)
 
   const mappedCount = groups.reduce((n, g) => n + g.champions.length, 0)
 
@@ -30,7 +18,7 @@ export default async function Page() {
             MongoDB Community Champions
           </h1>
           <p className="text-pretty text-sm text-muted-foreground">
-            Live from mongodb.com — each pin rolls up every champion in that location.
+            Sourced from mongodb.com — each pin rolls up every champion in that location.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
@@ -41,16 +29,7 @@ export default async function Page() {
       </header>
 
       <div className="relative flex-1">
-        {error ? (
-          <div className="flex h-full items-center justify-center p-6">
-            <div className="max-w-md rounded-lg border border-destructive/40 bg-card p-6 text-center">
-              <p className="font-semibold text-destructive">Could not load champion data</p>
-              <p className="mt-2 text-sm text-muted-foreground">{error}</p>
-            </div>
-          </div>
-        ) : (
-          <ChampionsMap groups={groups} />
-        )}
+        <ChampionsMap groups={groups} />
 
         {unmapped.length > 0 && (
           <div className="pointer-events-none absolute bottom-3 left-3 z-[500] rounded-md border border-border bg-card/90 px-3 py-2 text-xs text-muted-foreground backdrop-blur">

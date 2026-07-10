@@ -1,0 +1,35 @@
+export type LatLon = { lat: number; lon: number }
+
+// Lat/Lon mapping for each location string that appears in the MongoDB
+// champions `capData`.
+export const LOCATION_COORDS: Record<string, LatLon> = {
+  Argentina: { lat: -38.4161, lon: -63.6167 },
+  Australia: { lat: -25.2744, lon: 133.7751 },
+  Brazil: { lat: -14.235, lon: -51.9253 },
+  Canada: { lat: 56.1304, lon: -106.3468 },
+  China: { lat: 35.8617, lon: 104.1954 },
+  Colombia: { lat: 4.5709, lon: -74.2973 },
+  "Costa Rica": { lat: 9.7489, lon: -83.7534 },
+  France: { lat: 46.2276, lon: 2.2137 },
+  Germany: { lat: 51.1657, lon: 10.4515 },
+  India: { lat: 20.5937, lon: 78.9629 },
+  Ireland: { lat: 53.4129, lon: -8.2439 },
+  Jordan: { lat: 30.5852, lon: 36.2384 },
+  Lebanon: { lat: 33.8547, lon: 35.8623 },
+  Malaysia: { lat: 4.2105, lon: 101.9758 },
+  Massachusetts: { lat: 42.4072, lon: -71.3824 },
+  Mexico: { lat: 23.6345, lon: -102.5528 },
+  "Mumbai, India": { lat: 19.076, lon: 72.8777 },
+  Netherlands: { lat: 52.1326, lon: 5.2913 },
+  "New Zealand": { lat: -40.9006, lon: 174.886 },
+  Portugal: { lat: 39.3999, lon: -8.2245 },
+  "Republic of Korea": { lat: 35.9078, lon: 127.7669 },
+  "Santa Monica, USA": { lat: 34.0195, lon: -118.4912 },
+  Serbia: { lat: 44.0165, lon: 21.0059 },
+  Spain: { lat: 40.4637, lon: -3.7492 },
+  Thailand: { lat: 15.87, lon: 100.9925 },
+  "United Arab Emirates": { lat: 23.4241, lon: 53.8478 },
+  "United Kingdom": { lat: 55.3781, lon: -3.436 },
+  "United States": { lat: 39.8283, lon: -98.5795 },
+  "Washington, DC": { lat: 38.9072, lon: -77.0369 },
+}

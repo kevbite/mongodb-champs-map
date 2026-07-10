@@ -80,15 +80,13 @@ export function parseCapData(html: string): Champion[] {
   return data.filter((c) => c && c.name && c.location)
 }
 
-const locationReplacements : Record<string, string> = {
-  'UK': 'United Kingdom',
-  'Brasil': 'Brazil'
-};
-
 /**
  * Rolls up champions by location and attaches lat/lon coordinates.
  * Locations without a known coordinate are skipped from the map but
  * returned separately so the UI can surface them.
+ *
+ * Location strings are expected to be normalized already (this happens at
+ * fetch time in `scripts/fetch-data.ts`).
  */
 export function groupByLocation(champions: Champion[]): {
   groups: LocationGroup[]
@@ -97,10 +95,9 @@ export function groupByLocation(champions: Champion[]): {
   const byLocation = new Map<string, Champion[]>()
 
   for (const champ of champions) {
-    const normalizedChampLocation = locationReplacements[champ.location] ?? champ.location;
-    const list = byLocation.get(normalizedChampLocation) ?? []
+    const list = byLocation.get(champ.location) ?? []
     list.push(champ)
-    byLocation.set(normalizedChampLocation, list)
+    byLocation.set(champ.location, list)
   }
 
   const groups: LocationGroup[] = []

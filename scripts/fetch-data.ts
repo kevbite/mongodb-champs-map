@@ -41,6 +41,16 @@ const IMAGE_EXTENSIONS: Record<string, string> = {
 
 const DOWNLOAD_CONCURRENCY = 8
 
+/** Canonicalizes location strings that appear under multiple spellings. */
+const LOCATION_REPLACEMENTS: Record<string, string> = {
+  UK: "United Kingdom",
+  Brasil: "Brazil",
+}
+
+function normalizeLocation(location: string): string {
+  return LOCATION_REPLACEMENTS[location] ?? location
+}
+
 /** Turns a champion name into a filesystem-safe slug. */
 function slugify(name: string): string {
   const slug = name
@@ -132,7 +142,7 @@ async function mapWithConcurrency<T, R>(
 function toOutput(champ: Champion, avatar?: string): Champion {
   const out: Champion = {
     name: champ.name,
-    location: champ.location,
+    location: normalizeLocation(champ.location),
   }
   if (champ.cap_role) out.cap_role = champ.cap_role
   if (champ.cap_role_since) out.cap_role_since = champ.cap_role_since

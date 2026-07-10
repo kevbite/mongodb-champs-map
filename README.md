@@ -69,10 +69,7 @@ The `public/CNAME` file pins the custom domain across deploys. To finish setup:
 
    | Type  | Name             | Value                 |
    | ----- | ---------------- | --------------------- |
-   | CNAME | `mongodb-champs` | `<user>.github.io.`   |
-
-   (Replace `<user>` with the GitHub account/org that owns the repo, e.g.
-   `kevbite.github.io.`)
+   | CNAME | `mongodb-champs` | `kevbite.github.io.`  |
 
 2. In **Settings → Pages → Custom domain**, enter
    `mongodb-champs.kevsoft.net` and save.

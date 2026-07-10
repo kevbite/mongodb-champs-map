@@ -9,7 +9,7 @@
  * Bump CACHE_VERSION to invalidate all caches on the next activation.
  */
 
-const CACHE_VERSION = 'v1'
+const CACHE_VERSION = 'v2'
 const SHELL_CACHE = `champions-shell-${CACHE_VERSION}`
 const ASSET_CACHE = `champions-assets-${CACHE_VERSION}`
 const TILE_CACHE = `champions-tiles-${CACHE_VERSION}`
@@ -20,7 +20,8 @@ const CURRENT_CACHES = [SHELL_CACHE, ASSET_CACHE, TILE_CACHE]
 const SHELL_URLS = [
   '/',
   '/manifest.webmanifest',
-  '/icon.svg',
+  '/icon-16x16.png',
+  '/icon-32x32.png',
   '/icon-192x192.png',
   '/icon-512x512.png',
   '/icon-maskable-512x512.png',

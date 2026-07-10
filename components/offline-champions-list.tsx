@@ -1,3 +1,5 @@
+"use client"
+
 import type { Champion, ChampionLocationGroup } from "@/lib/champions"
 
 type Props = {
@@ -45,8 +47,21 @@ function ChampionRow({ champion }: { champion: Champion }) {
 
   return (
     <div className="flex items-center gap-3 px-4 py-2.5">
-      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold text-muted-foreground">
+      <span className="relative flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-muted text-xs font-semibold text-muted-foreground">
         {initial}
+        {champion.avatar && (
+          <img
+            src={champion.avatar}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 size-full object-cover"
+            onError={(e) => {
+              // Avatar isn't cached (e.g. offline first visit): hide the image
+              // and reveal the initial underneath.
+              e.currentTarget.style.display = "none"
+            }}
+          />
+        )}
       </span>
       <div className="flex min-w-0 flex-col leading-tight">
         <span className="truncate text-sm font-medium">

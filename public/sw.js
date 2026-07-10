@@ -1,32 +1,32 @@
 /*
  * Hand-rolled service worker for the MongoDB Champions Map PWA.
  *
- * Strategies:
- *   - Navigations           -> network-first, fall back to cached app shell (offline).
- *   - Same-origin static     -> stale-while-revalidate (hashed assets are immutable).
- *   - CartoDB map tiles      -> cache-first with an LRU-style cap (offline visited areas).
+ * Offline strategy:
+ *   - On install we PRECACHE the full static build (HTML, hashed JS/CSS chunks,
+ *     fonts, icons, avatars). The asset list + build id are injected into this
+ *     file at build time by `scripts/inject-sw-manifest.ts`, so a first-time
+ *     visitor is fully offline-capable after the initial load, regardless of
+ *     when the worker takes control.
+ *   - Navigations           -> network-first, fall back to the cached app shell.
+ *   - Same-origin assets     -> cache-first (served from precache), revalidated
+ *                               in the background (stale-while-revalidate).
+ *   - CartoDB map tiles      -> cache-first with an LRU-style cap.
  *
- * Bump CACHE_VERSION to invalidate all caches on the next activation.
+ * The two lines below are rewritten during the build; the defaults keep the
+ * worker functional in dev where no injection happens.
  */
 
-const CACHE_VERSION = 'v2'
-const SHELL_CACHE = `champions-shell-${CACHE_VERSION}`
-const ASSET_CACHE = `champions-assets-${CACHE_VERSION}`
-const TILE_CACHE = `champions-tiles-${CACHE_VERSION}`
+const BUILD_ID = 'dev'
+const PRECACHE_ASSETS = []
 
-const CURRENT_CACHES = [SHELL_CACHE, ASSET_CACHE, TILE_CACHE]
+const PRECACHE = `champions-precache-${BUILD_ID}`
+const RUNTIME = `champions-runtime-${BUILD_ID}`
+const TILE_CACHE = `champions-tiles-${BUILD_ID}`
 
-// App shell resources precached on install so the site opens offline.
-const SHELL_URLS = [
-  '/',
-  '/manifest.webmanifest',
-  '/icon-16x16.png',
-  '/icon-32x32.png',
-  '/icon-192x192.png',
-  '/icon-512x512.png',
-  '/icon-maskable-512x512.png',
-  '/apple-icon.png',
-]
+const CURRENT_CACHES = [PRECACHE, RUNTIME, TILE_CACHE]
+
+// Always precache the app shell entry, even in dev where the manifest is empty.
+const SHELL_URLS = ['/', '/manifest.webmanifest']
 
 // Max number of map tiles to retain in the tile cache.
 const TILE_CACHE_LIMIT = 300
@@ -35,25 +35,29 @@ const TILE_HOST = 'basemaps.cartocdn.com'
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches
-      .open(SHELL_CACHE)
-      .then((cache) => cache.addAll(SHELL_URLS))
-      .then(() => self.skipWaiting()),
+    (async () => {
+      const cache = await caches.open(PRECACHE)
+      const urls = Array.from(new Set([...SHELL_URLS, ...PRECACHE_ASSETS]))
+      // Cache resiliently: a single 404 must not abort the whole install.
+      await Promise.allSettled(
+        urls.map((url) => cache.add(new Request(url, { cache: 'reload' }))),
+      )
+      await self.skipWaiting()
+    })(),
   )
 })
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches
-      .keys()
-      .then((keys) =>
-        Promise.all(
-          keys
-            .filter((key) => !CURRENT_CACHES.includes(key))
-            .map((key) => caches.delete(key)),
-        ),
+    (async () => {
+      const keys = await caches.keys()
+      await Promise.all(
+        keys
+          .filter((key) => !CURRENT_CACHES.includes(key))
+          .map((key) => caches.delete(key)),
       )
-      .then(() => self.clients.claim()),
+      await self.clients.claim()
+    })(),
   )
 })
 
@@ -85,33 +89,34 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // Same-origin static assets -> stale-while-revalidate.
+  // Same-origin assets -> stale-while-revalidate (served from precache offline).
   event.respondWith(staleWhileRevalidate(request))
 })
 
 async function navigationStrategy(request) {
-  const cache = await caches.open(SHELL_CACHE)
   try {
     const response = await fetch(request)
     // Keep the app shell fresh for offline use.
+    const cache = await caches.open(PRECACHE)
     cache.put('/', response.clone())
     return response
   } catch {
     return (
-      (await cache.match(request)) ||
-      (await cache.match('/')) ||
+      (await caches.match(request)) ||
+      (await caches.match('/')) ||
       Response.error()
     )
   }
 }
 
 async function staleWhileRevalidate(request) {
-  const cache = await caches.open(ASSET_CACHE)
-  const cached = await cache.match(request)
+  // Search every cache (precache + runtime) for a hit.
+  const cached = await caches.match(request)
 
   const network = fetch(request)
-    .then((response) => {
+    .then(async (response) => {
       if (response && response.ok) {
+        const cache = await caches.open(RUNTIME)
         cache.put(request, response.clone())
       }
       return response

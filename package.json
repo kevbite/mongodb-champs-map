@@ -5,7 +5,7 @@
   "packageManager": "pnpm@11.11.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && tsx scripts/inject-sw-manifest.ts",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",

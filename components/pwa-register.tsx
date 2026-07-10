@@ -19,6 +19,15 @@ export function PwaRegister() {
       })
     }
 
+    // If the page has already finished loading (common for a fast static
+    // export, where `load` can fire before this effect runs), register
+    // immediately; otherwise wait for `load` to avoid contending with the
+    // initial render.
+    if (document.readyState === "complete") {
+      register()
+      return
+    }
+
     window.addEventListener("load", register)
     return () => window.removeEventListener("load", register)
   }, [])

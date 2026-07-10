@@ -21,6 +21,11 @@ export type LocationGroup = {
   champions: Champion[]
 }
 
+export type ChampionLocationGroup = {
+  location: string
+  champions: Champion[]
+}
+
 export const SOURCE_URL = "https://www.mongodb.com/community/champions"
 
 /**
@@ -123,4 +128,39 @@ export function groupByLocation(champions: Champion[]): {
   groups.sort((a, b) => b.champions.length - a.champions.length)
 
   return { groups, unmapped }
+}
+
+/**
+ * Rolls up every champion by their `location` string, regardless of whether the
+ * location has known map coordinates. Used by the offline view, which lists all
+ * champions grouped by location rather than plotting pins.
+ *
+ * Champions are sorted alphabetically within a group. Groups are ordered by size
+ * (biggest first), then by location name for a stable, deterministic order.
+ */
+export function groupAllByLocation(
+  champions: Champion[],
+): ChampionLocationGroup[] {
+  const byLocation = new Map<string, Champion[]>()
+
+  for (const champ of champions) {
+    const list = byLocation.get(champ.location) ?? []
+    list.push(champ)
+    byLocation.set(champ.location, list)
+  }
+
+  const groups: ChampionLocationGroup[] = []
+
+  for (const [location, list] of byLocation) {
+    list.sort((a, b) => a.name.localeCompare(b.name))
+    groups.push({ location, champions: list })
+  }
+
+  groups.sort(
+    (a, b) =>
+      b.champions.length - a.champions.length ||
+      a.location.localeCompare(b.location),
+  )
+
+  return groups
 }

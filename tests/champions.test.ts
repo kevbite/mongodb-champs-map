@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { parseCapData, groupByLocation, type Champion } from "@/lib/champions"
+import { parseCapData, groupByLocation, groupAllByLocation, type Champion } from "@/lib/champions"
 import { LOCATION_COORDS } from "@/lib/locations"
 
 describe("parseCapData", () => {
@@ -72,5 +72,45 @@ describe("groupByLocation", () => {
   it("returns champions with unknown locations as unmapped", () => {
     const { unmapped } = groupByLocation(champions)
     expect(unmapped.map((c) => c.name)).toEqual(["Nemo"])
+  })
+})
+
+describe("groupAllByLocation", () => {
+  const champions: Champion[] = [
+    { name: "Charlie", location: "India" },
+    { name: "Alice", location: "India" },
+    { name: "Bob", location: "France" },
+    { name: "Nemo", location: "Atlantis" },
+  ]
+
+  it("includes locations without known map coordinates", () => {
+    const groups = groupAllByLocation(champions)
+    const locations = groups.map((g) => g.location)
+    expect(locations).toContain("Atlantis")
+    expect(groups.find((g) => g.location === "Atlantis")?.champions).toHaveLength(
+      1,
+    )
+  })
+
+  it("groups champions and counts them by location", () => {
+    const groups = groupAllByLocation(champions)
+    expect(groups.find((g) => g.location === "India")?.champions).toHaveLength(2)
+    expect(groups.find((g) => g.location === "France")?.champions).toHaveLength(1)
+  })
+
+  it("sorts champions alphabetically within a group", () => {
+    const groups = groupAllByLocation(champions)
+    const india = groups.find((g) => g.location === "India")
+    expect(india?.champions.map((c) => c.name)).toEqual(["Alice", "Charlie"])
+  })
+
+  it("orders groups by size, then location name for ties", () => {
+    const groups = groupAllByLocation(champions)
+    // India (2) first; France and Atlantis both have 1 → alphabetical.
+    expect(groups.map((g) => g.location)).toEqual([
+      "India",
+      "Atlantis",
+      "France",
+    ])
   })
 })

@@ -1,12 +1,13 @@
-import { groupByLocation, type Champion } from "@/lib/champions"
+import { groupAllByLocation, groupByLocation, type Champion } from "@/lib/champions"
 import championsData from "@/lib/data/champions.json"
-import { ChampionsMap } from "@/components/champions-map"
+import { ChampionsView } from "@/components/champions-view"
 import { Users, Globe } from "lucide-react"
 
 export default function Page() {
   const champions = championsData as Champion[]
   const total = champions.length
   const { groups, unmapped } = groupByLocation(champions)
+  const allGroups = groupAllByLocation(champions)
 
   return (
     <main className="flex h-dvh flex-col bg-background text-foreground">
@@ -25,15 +26,11 @@ export default function Page() {
         </div>
       </header>
 
-      <div className="relative flex-1">
-        <ChampionsMap groups={groups} />
-
-        {unmapped.length > 0 && (
-          <div className="pointer-events-none absolute bottom-3 left-3 z-[500] rounded-md border border-border bg-card/90 px-3 py-2 text-xs text-muted-foreground backdrop-blur">
-            {unmapped.length} champion{unmapped.length === 1 ? "" : "s"} without a mapped location
-          </div>
-        )}
-      </div>
+      <ChampionsView
+        groups={groups}
+        allGroups={allGroups}
+        unmappedCount={unmapped.length}
+      />
     </main>
   )
 }

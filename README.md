@@ -43,6 +43,22 @@ pnpm build
 
 Requirements: Node.js 20+ and pnpm (see `packageManager` in `package.json`).
 
+## Testing
+
+Unit tests are written with [Vitest](https://vitest.dev/) and live in `tests/`.
+They cover the pure logic extracted from the app and the build pipeline:
+parsing/grouping (`lib/champions.ts`), location normalization (`lib/locations.ts`),
+popup rendering (`lib/popup.ts`), and the fetch transforms (`scripts/transform.ts`).
+
+```bash
+pnpm test        # run once
+pnpm test:watch  # watch mode
+```
+
+Tests also run in CI: on every push and pull request (`.github/workflows/ci.yml`,
+which also typechecks), and before every deploy (`.github/workflows/deploy.yml`),
+so a failing test blocks deployment.
+
 ## Deployment (GitHub Pages)
 
 Deployment is automated via GitHub Actions:
@@ -82,10 +98,13 @@ Because the site is served at the root of the subdomain, no `basePath` or
 
 | Path                          | Purpose                                             |
 | ----------------------------- | --------------------------------------------------- |
-| `scripts/fetch-data.ts`       | Build-time data + avatar fetcher                    |
+| `scripts/fetch-data.ts`       | Build-time data + avatar fetcher (network + I/O)    |
+| `scripts/transform.ts`        | Pure fetch-pipeline transforms (slug, filename, …)  |
 | `lib/champions.ts`            | Parsing, grouping, and shared types                 |
-| `lib/locations.ts`            | Location → lat/lon lookup                           |
+| `lib/locations.ts`            | Location → lat/lon lookup + normalization           |
+| `lib/popup.ts`                | Pure Leaflet popup HTML builders                    |
 | `lib/data/champions.json`     | Committed champion data snapshot (generated)        |
 | `public/avatars/`             | Committed avatar images (generated)                 |
 | `app/page.tsx`                | Page that renders the map from the baked JSON       |
 | `components/champions-map.tsx`| Client-side Leaflet map                             |
+| `tests/`                      | Vitest unit tests                                   |

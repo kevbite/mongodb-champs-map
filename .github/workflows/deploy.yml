@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Run tests
+        run: pnpm test
+
       # Build from the committed lib/data/champions.json + public/avatars.
       # (Data is refreshed separately by refresh.yml, not on every deploy,
       # so deploys are deterministic and don't depend on mongodb.com.)

@@ -12,12 +12,12 @@
  *
  * Run with: `pnpm fetch-data`
  */
-import { createHash } from "node:crypto"
 import { mkdir, rm, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 
 import { SOURCE_URL, parseCapData, type Champion } from "../lib/champions"
+import { avatarFilename, resolveExtension, toOutput } from "./transform"
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const AVATAR_DIR = path.join(ROOT, "public", "avatars")
@@ -30,63 +30,7 @@ const BROWSER_HEADERS = {
   Accept: "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
 }
 
-const IMAGE_EXTENSIONS: Record<string, string> = {
-  "image/jpeg": ".jpg",
-  "image/jpg": ".jpg",
-  "image/png": ".png",
-  "image/webp": ".webp",
-  "image/gif": ".gif",
-  "image/svg+xml": ".svg",
-}
-
 const DOWNLOAD_CONCURRENCY = 8
-
-/** Canonicalizes location strings that appear under multiple spellings. */
-const LOCATION_REPLACEMENTS: Record<string, string> = {
-  UK: "United Kingdom",
-  Brasil: "Brazil",
-}
-
-function normalizeLocation(location: string): string {
-  return LOCATION_REPLACEMENTS[location] ?? location
-}
-
-/** Turns a champion name into a filesystem-safe slug. */
-function slugify(name: string): string {
-  const slug = name
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "") // strip diacritics
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-  return slug || "champion"
-}
-
-/** Best-effort file extension from a URL's pathname. */
-function extFromUrl(url: string): string | null {
-  try {
-    const ext = path.extname(new URL(url).pathname).toLowerCase()
-    return /^\.(jpe?g|png|webp|gif|svg)$/.test(ext)
-      ? ext.replace(".jpeg", ".jpg")
-      : null
-  } catch {
-    return null
-  }
-}
-
-/**
- * Deterministic avatar filename: `<name-slug>-<hash>.<ext>`.
- * The short hash of the source URL guarantees uniqueness and stays stable
- * across builds (so unchanged images produce no git churn), while changing
- * whenever the champion's image actually changes.
- */
-function avatarFilename(champ: Champion, ext: string): string {
-  const hash = createHash("sha1")
-    .update(champ.img_url ?? champ.name)
-    .digest("hex")
-    .slice(0, 6)
-  return `${slugify(champ.name)}-${hash}${ext}`
-}
 
 type DownloadResult = { champ: Champion; avatar?: string }
 
@@ -109,7 +53,7 @@ async function downloadAvatar(champ: Champion): Promise<DownloadResult> {
       return { champ }
     }
 
-    const ext = IMAGE_EXTENSIONS[contentType] ?? extFromUrl(src) ?? ".jpg"
+    const ext = resolveExtension(contentType, src)
     const filename = avatarFilename(champ, ext)
     const bytes = Buffer.from(await res.arrayBuffer())
     await writeFile(path.join(AVATAR_DIR, filename), bytes)
@@ -136,22 +80,6 @@ async function mapWithConcurrency<T, R>(
   })
   await Promise.all(workers)
   return results
-}
-
-/** Builds the trimmed, stably-ordered champion record written to JSON. */
-function toOutput(champ: Champion, avatar?: string): Champion {
-  const out: Champion = {
-    name: champ.name,
-    location: normalizeLocation(champ.location),
-  }
-  if (champ.cap_role) out.cap_role = champ.cap_role
-  if (champ.cap_role_since) out.cap_role_since = champ.cap_role_since
-  if (champ.company) out.company = champ.company
-  if (champ.ext_role) out.ext_role = champ.ext_role
-  if (typeof champ.page_order === "number") out.page_order = champ.page_order
-  if (champ.user_link) out.user_link = champ.user_link
-  if (avatar) out.avatar = avatar
-  return out
 }
 
 async function main() {

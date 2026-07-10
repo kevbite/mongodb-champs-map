@@ -1,5 +1,16 @@
 export type LatLon = { lat: number; lon: number }
 
+/** Canonicalizes location strings that appear under multiple spellings. */
+export const LOCATION_REPLACEMENTS: Record<string, string> = {
+  UK: "United Kingdom",
+  Brasil: "Brazil",
+}
+
+/** Maps a raw location string to its canonical form. */
+export function normalizeLocation(location: string): string {
+  return LOCATION_REPLACEMENTS[location] ?? location
+}
+
 // Lat/Lon mapping for each location string that appears in the MongoDB
 // champions `capData`.
 export const LOCATION_COORDS: Record<string, LatLon> = {

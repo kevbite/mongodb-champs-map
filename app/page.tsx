@@ -1,6 +1,8 @@
 import { groupAllByLocation, groupByLocation, type Champion } from "@/lib/champions"
 import championsData from "@/lib/data/champions.json"
 import { ChampionsView } from "@/components/champions-view"
+import { ShareButton } from "@/components/share-button"
+import { InstallBanner } from "@/components/install-banner"
 import { Users, Globe } from "lucide-react"
 
 export default function Page() {
@@ -11,6 +13,7 @@ export default function Page() {
 
   return (
     <main className="flex h-dvh flex-col bg-background text-foreground">
+      <InstallBanner />
       <header className="flex flex-col gap-3 border-b border-border px-5 py-4 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col gap-1">
           <h1 className="text-balance text-xl font-bold tracking-tight">
@@ -20,9 +23,10 @@ export default function Page() {
             Sourced from mongodb.com — each pin rolls up every champion in that location.
           </p>
         </div>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap items-center gap-2 md:gap-4">
           <Stat icon={<Users className="size-4" />} label="Champions" value={total} />
           <Stat icon={<Globe className="size-4" />} label="Locations" value={groups.length} />
+          <ShareButton />
         </div>
       </header>
 
@@ -45,11 +49,11 @@ function Stat({
   value: number
 }) {
   return (
-    <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2">
+    <div className="flex items-center gap-1.5 rounded-lg border border-border bg-card px-2.5 py-1.5 md:gap-2 md:px-3 md:py-2">
       <span className="text-brand">{icon}</span>
       <div className="flex flex-col leading-tight">
         <span className="text-base font-bold tabular-nums">{value}</span>
-        <span className="text-[11px] uppercase tracking-wide text-muted-foreground">
+        <span className="hidden text-[11px] uppercase tracking-wide text-muted-foreground md:inline">
           {label}
         </span>
       </div>

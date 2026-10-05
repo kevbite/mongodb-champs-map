@@ -31,8 +31,11 @@ export function ChampionsMap({ groups }: Props) {
       })
       mapRef.current = map
 
+      const cartoKey = process.env.NEXT_PUBLIC_CARTO_API_KEY
+      const keyParam = cartoKey ? `?key=${cartoKey}` : ""
+
       L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+        `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png${keyParam}`,
         {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',

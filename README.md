@@ -43,6 +43,20 @@ pnpm build
 
 Requirements: Node.js 20+ and pnpm (see `packageManager` in `package.json`).
 
+### Basemap API key
+
+The dark basemap uses CARTO raster tiles, which now require an API key —
+without one the tiles render an "API key required" watermark. Grab a free key
+from [carto.com/basemaps/apikey](https://carto.com/basemaps/apikey), then copy
+`.env.example` to `.env.local` and set:
+
+```bash
+NEXT_PUBLIC_CARTO_API_KEY=your_key_here
+```
+
+For GitHub Pages builds, add the same variable as a repository secret/variable
+and expose it to the `pnpm build` step.
+
 ## Testing
 
 Unit tests are written with [Vitest](https://vitest.dev/) and live in `tests/`.

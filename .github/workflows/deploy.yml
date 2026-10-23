@@ -45,6 +45,8 @@ jobs:
       # so deploys are deterministic and don't depend on mongodb.com.)
       - name: Build static site
         run: pnpm build
+        env:
+          NEXT_PUBLIC_CARTO_API_KEY: ${{ secrets.NEXT_PUBLIC_CARTO_API_KEY }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
